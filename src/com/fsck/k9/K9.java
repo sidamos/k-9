@@ -1,4 +1,3 @@
-
 package com.fsck.k9;
 
 import java.io.File;
@@ -276,6 +275,7 @@ public class K9 extends Application {
     private static boolean sMessageViewCopyActionVisible = false;
     private static boolean sMessageViewSpamActionVisible = false;
 
+    private static boolean checkMailDuringDoze = false;
 
     /**
      * @see #areDatabasesUpToDate()
@@ -562,6 +562,8 @@ public class K9 extends Application {
         editor.putBoolean("messageViewCopyActionVisible", sMessageViewCopyActionVisible);
         editor.putBoolean("messageViewSpamActionVisible", sMessageViewSpamActionVisible);
 
+        editor.putBoolean("checkMailDuringDoze", checkMailDuringDoze);
+
         fontSizes.save(editor);
     }
 
@@ -797,6 +799,7 @@ public class K9 extends Application {
         sMessageViewCopyActionVisible = sprefs.getBoolean("messageViewCopyActionVisible", false);
         sMessageViewSpamActionVisible = sprefs.getBoolean("messageViewSpamActionVisible", false);
 
+        checkMailDuringDoze = sprefs.getBoolean("checkMailDuringDoze", false);
 
         K9.setK9Language(sprefs.getString("language", ""));
 
@@ -1349,6 +1352,14 @@ public class K9 extends Application {
 
     public static void setMessageViewSpamActionVisible(boolean visible) {
         sMessageViewSpamActionVisible = visible;
+    }
+
+    public static boolean isCheckMailDuringDoze() {
+        return checkMailDuringDoze;
+    }
+
+    public static void setCheckMailDuringDoze(boolean checkMailDuringDoze) {
+        K9.checkMailDuringDoze = checkMailDuringDoze;
     }
 
     /**

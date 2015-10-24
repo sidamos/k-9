@@ -95,6 +95,7 @@ public class Prefs extends K9PreferenceActivity {
     private static final String PREFERENCE_THREADED_VIEW = "threaded_view";
     private static final String PREFERENCE_FOLDERLIST_WRAP_NAME = "folderlist_wrap_folder_name";
     private static final String PREFERENCE_SPLITVIEW_MODE = "splitview_mode";
+    private static final String PREFERENCE_CHECK_MAIL_DURING_DOZE = "check_mail_during_doze";
 
     private static final int ACTIVITY_CHOOSE_FOLDER = 1;
 
@@ -150,6 +151,7 @@ public class Prefs extends K9PreferenceActivity {
     private CheckBoxPreference mThreadedView;
     private ListPreference mSplitViewMode;
 
+    private CheckBoxPreference checkMailDuringDoze;
 
     public static void actionPrefs(Context context) {
         Intent i = new Intent(context, Prefs.class);
@@ -397,6 +399,9 @@ public class Prefs extends K9PreferenceActivity {
         visibleRefileActionsValues[VISIBLE_REFILE_ACTIONS_COPY] = K9.isMessageViewCopyActionVisible();
         visibleRefileActionsValues[VISIBLE_REFILE_ACTIONS_SPAM] = K9.isMessageViewSpamActionVisible();
 
+        checkMailDuringDoze = (CheckBoxPreference) findPreference(PREFERENCE_CHECK_MAIL_DURING_DOZE);
+        checkMailDuringDoze.setChecked(K9.isCheckMailDuringDoze());
+
         mVisibleRefileActions.setItems(visibleRefileActionsEntries);
         mVisibleRefileActions.setCheckedItems(visibleRefileActionsValues);
 
@@ -474,6 +479,8 @@ public class Prefs extends K9PreferenceActivity {
         K9.setMessageViewMoveActionVisible(enabledRefileActions[VISIBLE_REFILE_ACTIONS_MOVE]);
         K9.setMessageViewCopyActionVisible(enabledRefileActions[VISIBLE_REFILE_ACTIONS_COPY]);
         K9.setMessageViewSpamActionVisible(enabledRefileActions[VISIBLE_REFILE_ACTIONS_SPAM]);
+
+        K9.setCheckMailDuringDoze(checkMailDuringDoze.isChecked());
 
         K9.setQuietTimeStarts(mQuietTimeStarts.getTime());
         K9.setQuietTimeEnds(mQuietTimeEnds.getTime());

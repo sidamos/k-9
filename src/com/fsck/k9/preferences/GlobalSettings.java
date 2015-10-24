@@ -249,6 +249,9 @@ public class GlobalSettings {
         s.put("hideTimeZone", Settings.versions(
                 new V(32, new BooleanSetting(false))
             ));
+        s.put("checkMailDuringDoze", Settings.versions(
+                new V(36, new BooleanSetting(false))
+        ));
 
         SETTINGS = Collections.unmodifiableMap(s);
 

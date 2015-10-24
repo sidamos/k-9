@@ -912,6 +912,8 @@ Um Fehler zu melden, neue Funktionen vorzuschlagen oder Fragen zu stellen, besuc
   <string name="openpgp_get_key">Schlage fehlenden Schlüssel nach</string>
   <string name="openpgp_error">OpenPGP Fehler:</string>
   <string name="openpgp_user_id">Benutzer-ID</string>
+  <string name="check_mail_during_doze_label">Auf neue Mails während Doze prüfen</string>
+  <string name="check_mail_during_doze_summary">Auf neue Mails während Doze Modus prüfen (Android 6.0+), max. alle 15 Minuten</string>
   <!--=== Client certificates specific ==================================================================-->
   <string name="account_setup_basics_client_certificate">Client-Zertifikat verwenden</string>
   <string name="client_certificate_spinner_empty">Kein Client-Zertifikat</string>
